@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Dashboard - Point Labour</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Font Awesome + Google Fonts -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f1f8ff;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar {
+      background-color: #0d47a1;
+      padding: 15px 30px;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .navbar .title {
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+    }
+
+    .navbar a:hover {
+      color: #ffeb3b;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 30px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      color: #0d47a1;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .stats {
+      display: flex;
+      justify-content: space-around;
+      margin-bottom: 30px;
+    }
+
+    .card {
+      background-color: #e3f2fd;
+      padding: 20px;
+      width: 45%;
+      text-align: center;
+      border-radius: 10px;
+    }
+
+    .card h3 {
+      font-size: 24px;
+      color: #0d47a1;
+    }
+
+    .card p {
+      font-size: 18px;
+      color: #444;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 30px;
+    }
+
+    th, td {
+      padding: 12px;
+      text-align: center;
+      border-bottom: 1px solid #ccc;
+    }
+
+    th {
+      background-color: #1976d2;
+      color: white;
+    }
+
+    tr:hover {
+      background-color: #f5f5f5;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 50px;
+      font-size: 14px;
+      color: #777;
+    }
+
+    @media(max-width: 768px) {
+      .stats {
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .card {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 🔝 Navbar -->
+  <div class="navbar">
+    <div class="title">Admin Panel - Point Labour</div>
+    <div>
+      <a href="index.html"><i class="fas fa-home"></i> Home</a>
+      <a href="labour_dashboard.html"><i class="fas fa-user-hard-hat"></i> Labour View</a>
+      <a href="contact.html"><i class="fas fa-phone-alt"></i> Contact</a>
+      <a href="index.html"><i class="fas fa-sign-out-alt"></i> Logout</a>
+    </div>
+  </div>
+
+  <div class="container">
+    <h2>Admin Dashboard</h2>
+
+    <!-- 🔢 Stats -->
+    <div class="stats">
+      <div class="card">
+        <h3>122</h3>
+        <p>Total Labour Registered</p>
+      </div>
+      <div class="card">
+        <h3>34</h3>
+        <p>Total Contractors Registered</p>
+      </div>
+    </div>
+
+    <!-- 📋 Recent Signups -->
+    <h3 style="color:#0d47a1;">Recent Labour Signups</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Skill</th>
+          <th>Location</th>
+          <th>Experience</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Ganesh Yadav</td>
+          <td>Mason</td>
+          <td>Kandivali</td>
+          <td>5 yrs</td>
+          <td style="color: green;">Verified</td>
+        </tr>
+        <tr>
+          <td>Raju Kumar</td>
+          <td>Plumber</td>
+          <td>Malad</td>
+          <td>3 yrs</td>
+          <td style="color: orange;">Pending</td>
+        </tr>
+        <tr>
+          <td>Aslam Sheikh</td>
+          <td>Carpenter</td>
+          <td>Dahisar</td>
+          <td>4 yrs</td>
+          <td style="color: green;">Verified</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="footer">
+      &copy; 2025 Point Labour | Admin Panel
+    </div>
+  </div>
+
+</body>
+</html>

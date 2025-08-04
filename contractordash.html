@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contractor Dashboard - Point Labour</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to right, #e0f7fa, #fff);
+      min-height: 100vh;
+    }
+
+    /* 🔝 Navigation Bar */
+    .navbar {
+      background-color: #0d47a1;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+      flex-wrap: wrap;
+    }
+
+    .navbar .title {
+      font-size: 22px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+    }
+
+    .navbar .title i {
+      margin-right: 10px;
+      color: yellow;
+    }
+
+    .navbar .nav-links a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+      font-size: 15px;
+      transition: color 0.3s;
+    }
+
+    .navbar .nav-links a:hover {
+      color: #ffeb3b;
+    }
+
+    /* 📝 Header */
+    .header {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .header h1 {
+      color: #0d47a1;
+      font-size: 28px;
+    }
+
+    /* 🔍 Search Box */
+    .search-section {
+      background: white;
+      max-width: 700px;
+      margin: 30px auto;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    }
+
+    .search-section form {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      justify-content: center;
+    }
+
+    .search-section select,
+    .search-section input {
+      padding: 10px;
+      width: 200px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+
+    .search-section button {
+      background: #00b894;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .search-section button:hover {
+      background: #019875;
+    }
+
+    /* 👷 Labour Results */
+    .results {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 20px 40px;
+    }
+
+    .card {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      width: 260px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card h3 {
+      margin-top: 0;
+      color: #00796b;
+    }
+
+    .card p {
+      margin: 5px 0;
+      color: #555;
+    }
+
+    .card a {
+      display: inline-block;
+      margin-top: 10px;
+      text-decoration: none;
+      color: #00b894;
+      font-weight: 600;
+    }
+
+    .card a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      .search-section form {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .search-section select,
+      .search-section input,
+      .search-section button {
+        width: 90%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 🔝 Navigation -->
+  <div class="navbar">
+    <div class="title">
+      <i class="fas fa-hard-hat"></i> Point Labour Dashboard
+    </div>
+    <div class="nav-links">
+      <a href="index.html"><i class="fas fa-home"></i> Home</a>
+      <a href="labour.html"><i class="fas fa-user-plus"></i> Labour Register</a>
+      <a href="contractor.html"><i class="fas fa-users-cog"></i> Contractor Register</a>
+      <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
+      <a href="#"><i class="fas fa-phone-alt"></i> Contact</a>
+      <a href="index.html"><i class="fas fa-sign-out-alt"></i> Logout</a>
+    </div>
+  </div>
+
+  <!-- 📝 Header -->
+  <div class="header">
+    <h1>Find Skilled Labour Near You</h1>
+  </div>
+
+  <!-- 🔍 Search Section -->
+  <div class="search-section">
+    <form onsubmit="event.preventDefault(); showResults();">
+      <select id="skill">
+        <option value="">-- Select Skill --</option>
+        <option value="Plumber">Plumber</option>
+        <option value="Electrician">Electrician</option>
+        <option value="Carpenter">Carpenter</option>
+        <option value="Mason">Mason</option>
+        <option value="Painter">Painter</option>
+      </select>
+      <input type="text" id="location" placeholder="City or Pincode">
+      <button type="submit"><i class="fas fa-search"></i> Search</button>
+    </form>
+  </div>
+
+  <!-- 👷 Labour Cards -->
+  <div class="results" id="results">
+    <!-- JS will insert matching labour profiles here -->
+  </div>
+
+  <script>
+    const labourData = [
+    {
+        name: "Ramu sharma",
+        skill: "Plumber",
+        experience: 8,
+        location: "Malad, 400095",
+        contact: "9876543217"
+      },
+    {
+        name: "Raju Kale",
+        skill: "Carpenter",
+        experience: 2.5,
+        location: "Malad, 400095",
+        contact: "9876543215"
+      },
+      {
+        name: "Ramesh Kumar",
+        skill: "Electrician",
+        experience: 4,
+        location: "Malad, 400095",
+        contact: "9876543210"
+      },
+      {
+        name: "Salim Shaikh",
+        skill: "Plumber",
+        experience: 2,
+        location: "Dahisar, 400068",
+        contact: "9822112233"
+      },
+      {
+        name: "Ganesh Yadav",
+        skill: "Mason",
+        experience: 5,
+        location: "Kandivali, 400067",
+        contact: "9001123344"
+      }
+    ];
+
+    function showResults() {
+      const skill = document.getElementById('skill').value.toLowerCase();
+      const location = document.getElementById('location').value.toLowerCase();
+      const resultsDiv = document.getElementById('results');
+      resultsDiv.innerHTML = '';
+
+      const filtered = labourData.filter(labour =>
+        (skill === '' || labour.skill.toLowerCase() === skill) &&
+        (location === '' || labour.location.toLowerCase().includes(location))
+      );
+
+      if (filtered.length === 0) {
+        resultsDiv.innerHTML = '<p>No matching labour found.</p>';
+        return;
+      }
+
+      filtered.forEach(labour => {
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.innerHTML = `
+          <h3>${labour.name}</h3>
+          <p><strong>Skill:</strong> ${labour.skill}</p>
+          <p><strong>Experience:</strong> ${labour.experience} years</p>
+          <p><strong>Location:</strong> ${labour.location}</p>
+          <p><strong>Contact:</strong> ${labour.contact}</p>
+          <a href="https://wa.me/91${labour.contact}" target="_blank">
+            <i class="fab fa-whatsapp"></i> WhatsApp
+          </a>
+        `;
+        resultsDiv.appendChild(card);
+      });
+    }
+  </script>
+
+</body>
+</html>

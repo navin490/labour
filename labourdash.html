@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Labour Dashboard - Point Labour</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Font Awesome & Google Fonts -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to right, #e0f7fa, #ffffff);
+    }
+
+    .navbar {
+      background-color: #0d47a1;
+      padding: 15px 30px;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .navbar .title {
+      font-size: 22px;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+    }
+
+    .navbar .title i {
+      margin-right: 10px;
+      color: yellow;
+    }
+
+    .navbar .nav-links a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+    }
+
+    .navbar .nav-links a:hover {
+      color: #ffeb3b;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 50px auto;
+      background: white;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      text-align: center;
+      color: #0d47a1;
+      margin-bottom: 20px;
+    }
+
+    .status-toggle {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 25px;
+    }
+
+    .status-toggle label {
+      margin-right: 10px;
+      font-weight: 600;
+      font-size: 16px;
+    }
+
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 60px;
+      height: 30px;
+    }
+
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      border-radius: 34px;
+      transition: 0.4s;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 24px;
+      width: 24px;
+      left: 3px;
+      bottom: 3px;
+      background-color: white;
+      border-radius: 50%;
+      transition: 0.4s;
+    }
+
+    input:checked + .slider {
+      background-color: #00b894;
+    }
+
+    input:checked + .slider:before {
+      transform: translateX(30px);
+    }
+
+    .profile, .extra-section, .job-alerts {
+      background-color: #f2f2f2;
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 30px;
+    }
+
+    .profile p, .extra-section p, .job-alerts li {
+      font-size: 16px;
+      margin: 10px 0;
+    }
+
+    .badges span {
+      background-color: #00b894;
+      color: white;
+      padding: 5px 10px;
+      margin-right: 10px;
+      border-radius: 6px;
+      font-size: 13px;
+    }
+
+    .job-alerts h3 {
+      color: #00796b;
+      margin-bottom: 15px;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 50px;
+      color: #666;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 🔝 Navbar -->
+  <div class="navbar">
+    <div class="title">
+      <i class="fas fa-hard-hat"></i> Point Labour
+    </div>
+    <div class="nav-links">
+      <a href="index.html"><i class="fas fa-home"></i> Home</a>
+      <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
+      <a href="contact.html"><i class="fas fa-phone-alt"></i> Contact</a>
+      <a href="index.html"><i class="fas fa-sign-out-alt"></i> Logout</a>
+    </div>
+  </div>
+
+  <!-- 👷 Labour Dashboard -->
+  <div class="container">
+    <h2>Welcome, Ganesh Yadav</h2>
+
+    <!-- 🔘 Availability Switch -->
+    <div class="status-toggle">
+      <label for="availability">Status:</label>
+      <label class="switch">
+        <input type="checkbox" id="availability" checked>
+        <span class="slider"></span>
+      </label>
+      <span id="status-text" style="margin-left: 15px; font-weight: bold; color: #00b894;">Available</span>
+    </div>
+
+    <!-- 👤 Profile Info -->
+    <div class="profile">
+      <p><strong>Skill:</strong> Mason</p>
+      <p><strong>Experience:</strong> 5 years</p>
+      <p><strong>Location:</strong> Kandivali, 400067</p>
+      <p><strong>Phone:</strong> 9001123344</p>
+      <p><strong>Email:</strong> ganesh.yadav@example.com</p>
+    </div>
+    <!-- ✏️ Edit Profile Button -->
+<div style="text-align: center; margin-top: -20px; margin-bottom: 30px;">
+  <a href="edit.html">
+    <button style="padding: 12px 25px; background-color: #0d47a1; color: white; border: none; border-radius: 6px; cursor: pointer;">
+      <i class="fas fa-edit"></i> Edit Profile
+    </button>
+  </a>
+</div>
+
+
+    <!-- 🌟 Extra Section -->
+    <div class="extra-section">
+      <p><strong>Badges:</strong></p>
+      <div class="badges">
+        <span><i class="fas fa-check-circle"></i> Verified</span>
+        <span><i class="fas fa-star"></i> 4.8 Rating</span>
+        <span><i class="fas fa-briefcase"></i> 12 Jobs Done</span>
+      </div>
+      <p style="margin-top: 15px;"><strong>Today's Tip:</strong> Always carry safety gear to maintain trust & professionalism!</p>
+      <p><em>“Hard work builds nations, brick by brick.”</em></p>
+    </div>
+
+    <!-- 🔔 Job Alerts -->
+    <div class="job-alerts">
+      <h3><i class="fas fa-bell"></i> Contractor Requests in Your Area</h3>
+      <ul>
+        <li>🔨 Contractor from Malad looking for 2 masons for 7 days.</li>
+        <li>🏗️ Plastering work in Goregaon West – ₹1500/day.</li>
+        <li>🧱 Wall repair job in Borivali. 1 mason needed.</li>
+      </ul>
+    </div>
+
+    <div class="footer">
+      &copy; 2025 Point Labour. All rights reserved.
+    </div>
+  </div>
+
+  <script>
+    // Availability toggle logic
+    const toggle = document.getElementById("availability");
+    const statusText = document.getElementById("status-text");
+
+    toggle.addEventListener("change", function() {
+      if (this.checked) {
+        statusText.textContent = "Available";
+        statusText.style.color = "#00b894";
+      } else {
+        statusText.textContent = "Not Available";
+        statusText.style.color = "crimson";
+      }
+    });
+  </script>
+
+</body>
+</html>

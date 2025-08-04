@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Point Labour - Contractor Registration</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f7f7f7;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .form-container {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.15);
+      width: 100%;
+      max-width: 500px;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 8px;
+      margin-bottom: 15px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      background: #28a745;
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 5px;
+      width: 100%;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    button:hover {
+      background: #218838;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Contractor Registration</h2>
+    <form action="/contractor-register" method="POST">
+      <label>Full Name:</label>
+      <input type="text" name="name" required>
+
+      <label>Company/Agency Name:</label>
+      <input type="text" name="company_name">
+
+      <label>Mobile Number:</label>
+      <input type="tel" name="mobile" required pattern="[0-9]{10}">
+
+      <label>Email Address:</label>
+      <input type="email" name="email" required>
+
+      <label>Location (City/Pincode):</label>
+      <input type="text" name="location" required>
+
+      <label>Requirement (Skill Needed):</label>
+      <select name="skill_needed" required>
+        <option value="">-- Select Skill --</option>
+        <option value="Plumber">Plumber</option>
+        <option value="Electrician">Electrician</option>
+        <option value="Carpenter">Carpenter</option>
+        <option value="Mason (Kadia)">Mason (Kadia)</option>
+        <option value="Painter">Painter</option>
+        <option value="Multiple">Multiple Labour Types</option>
+      </select>
+
+      <label>Number of Labourers Required:</label>
+      <input type="number" name="labour_count" min="1" required>
+
+      <label>Preferred Start Date:</label>
+      <input type="date" name="start_date" required>
+
+      <button type="submit">Register Request</button>
+      <div style="text-align: center; margin-top: 15px;">
+  <a href="index.html">Back to Login</a>
+</div>
+    </form>
+  </div>
+</body>
+</html>

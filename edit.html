@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Edit Profile - Point Labour</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f1f8ff;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar {
+      background-color: #0d47a1;
+      padding: 15px 30px;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .navbar .title {
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+    }
+
+    .navbar a:hover {
+      color: #ffeb3b;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 50px auto;
+      background: white;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      text-align: center;
+      color: #0d47a1;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      font-weight: bold;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 8px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    button {
+      padding: 12px 20px;
+      background-color: #00b894;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    button:hover {
+      background-color: #019875;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="navbar">
+    <div class="title">Point Labour</div>
+    <div>
+      <a href="labourdash.html">Dashboard</a>
+      <a href="index.html">Logout</a>
+    </div>
+  </div>
+
+  <div class="container">
+    <h2>Edit Your Profile</h2>
+    <form>
+      <div class="form-group">
+        <label>Full Name</label>
+        <input type="text" value="Ganesh Yadav">
+      </div>
+
+      <div class="form-group">
+        <label>Skill</label>
+        <input type="text" value="Mason">
+      </div>
+
+      <div class="form-group">
+        <label>Experience (Years)</label>
+        <input type="number" value="5">
+      </div>
+
+      <div class="form-group">
+        <label>Phone Number</label>
+        <input type="text" value="9001123344">
+      </div>
+
+      <div class="form-group">
+        <label>Email Address</label>
+        <input type="email" value="ganesh.yadav@example.com">
+      </div>
+
+      <div class="form-group">
+        <label>Location</label>
+        <input type="text" value="Kandivali, 400067">
+      </div>
+
+      <button type="submit"><i class="fas fa-save"></i> Save Changes</button>
+    </form>
+  </div>
+
+</body>
+</html>
