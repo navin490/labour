@@ -1,176 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Font Awesome for Icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-  <meta charset="UTF-8">
-  <title>Point Labour - Login</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Welcome to Point Labour</title>
   <style>
-    * {
-      box-sizing: border-box;
-    }
-
     body {
       margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #74ebd5, #ACB6E5);
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-
-    /* 🔝 Navigation Bar */
-    nav {
-      background-color: #18c40c;
-      padding: 15px 0;
-      text-align: center;
-    }
-
-    nav a {
-      color: #f1f1f1;
-      margin: 0 20px;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 16px;
-      transition: color 0.3s;
-    }
-
-    nav a:hover {
-      color: #00d1b2;
-    }
-
-    /* 🔐 Login Form Container */
-    .container {
-      flex: 1;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #3f87a6, #ebf8e1, #f69d3c);
       display: flex;
       justify-content: center;
       align-items: center;
+      height: 100vh;
+      overflow: hidden;
     }
 
-    .login-box {
-      background-color: white;
-      padding: 40px 30px;
-      border-radius: 12px;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-      width: 100%;
-      max-width: 400px;
+    .popup {
+      background: white;
+      padding: 40px;
       text-align: center;
+      border-radius: 15px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+      animation: fadeIn 1s ease;
     }
 
-    .login-box h2 {
-      margin-bottom: 25px;
+    .popup h1 {
+      font-size: 2em;
       color: #333;
     }
 
-    input[type="text"],
-    input[type="password"] {
-      width: 100%;
-      padding: 12px;
-      margin: 10px 0;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      font-size: 15px;
+    .popup p {
+      font-size: 1em;
+      color: #666;
+      margin: 20px 0;
     }
 
-    button {
-      width: 100%;
-      padding: 12px;
-      background-color: #00b894;
+    .popup button {
+      padding: 10px 25px;
+      background-color: #4caf50;
       color: white;
-      font-size: 16px;
+      font-size: 1em;
       border: none;
-      border-radius: 6px;
+      border-radius: 8px;
       cursor: pointer;
-      transition: background 0.3s ease;
+      transition: background-color 0.3s;
     }
 
-    button:hover {
-      background-color: #019875;
+    .popup button:hover {
+      background-color: #388e3c;
     }
 
-    .register-links {
-      margin-top: 20px;
-    }
-
-    .register-links a {
-      color: #007bff;
-      text-decoration: none;
-      display: block;
-      margin: 6px 0;
-    }
-
-    .register-links a:hover {
-      text-decoration: underline;
-    }
-
-    @media screen and (max-width: 480px) {
-      .login-box {
-        padding: 25px 20px;
-      }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
     }
   </style>
 </head>
 <body>
-
- <!-- 🌐 Upgraded Navigation Bar -->
-<nav class="navbar">
-  <div class="nav-left">
-    <i class="fas fa-hard-hat" style="color: yellow; margin-right: 8px;"></i>
-    <span class="project-name">Point Labour</span>
+  <div class="popup">
+    <h1>Welcome to Point Labour😊🙏</h1>
+    <p>Your one-stop solution for finding skilled labour and contractors!</p>
+    <button onclick="location.href='main.html'">Let's Start</button>
   </div>
-
-  <div class="nav-right">
-    <a href="home.html"><i class="fas fa-home"></i> Home</a>
-    <a href="labour.html"><i class="fas fa-user-plus"></i> Register Labour</a>
-    <a href="contractor.html"><i class="fas fa-users-cog"></i> Register Contractor</a>
-    <a href="about.html"><i class="fas fa-users-cog"></i>About</a>
-    <a href="contact.html"><i class="fas fa-users-cog"></i> Contact Me.📞</a>
-  </div>
-</nav>
-
-
-  <!-- 🔐 Login Form -->
-  <div class="container">
-    <div class="login-box">
-      <h2>Welcome to Point Labour</h2>
-      <form onsubmit="login(event)">
-  <input type="text" id="username" placeholder="Phone or Email" required>
-  <input type="password" id="password" placeholder="Password" required>
-  <button type="submit">Login</button>
-</form>
-
-<script>
-  function login(event) {
-    event.preventDefault();
-    
-    const username = document.getElementById("username").value.trim();
-    const password = document.getElementById("password").value;
-
-    // Simulated login check
-    if ((username === "contractor@gmail.com" || username === "hello") && password === "1234") {
-      // Redirect to dashboard
-      window.location.href = "labourdash.html";
-    } 
-    if ((username === "con@gmail.com" || username === "hell") && password === "1234") {
-      // Redirect to dashboard
-      window.location.href = "contractordash.html";
-    } else {
-      alert("Invalid username or password.");
-    }
-  }
-</script>
-
-
-      <div class="register-links">
-        <p>New here?</p>
-        <a href="labour.html">Register as Labour</a>
-        <a href="contractor.html">Register as Contractor</a>
-        <a href="adminlogin.html">login as admin</a>
-      </div>
-    </div>
-  </div>
-
 </body>
 </html>
