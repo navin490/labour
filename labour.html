@@ -2,94 +2,136 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Point Labour - Register</title>
+  <title>Labour Registration</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background: #f1f1f1;
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(120deg, #f6d365, #fda085);
       display: flex;
       justify-content: center;
       align-items: center;
-      min-height: 100vh;
+      height: 100vh;
     }
-    .form-container {
+
+    .container {
       background: white;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.2);
-      width: 100%;
-      max-width: 500px;
+      padding: 30px 40px;
+      border-radius: 12px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      width: 400px;
+      overflow-y: auto;
+      max-height: 95vh;
     }
+
     h2 {
       text-align: center;
+      color: #444;
       margin-bottom: 20px;
     }
+
+    label {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
     input, select {
       width: 100%;
       padding: 10px;
-      margin-top: 8px;
-      margin-bottom: 15px;
+      margin-top: 5px;
       border-radius: 5px;
       border: 1px solid #ccc;
     }
+
     button {
-      background: #007bff;
-      color: white;
-      padding: 12px;
-      border: none;
-      border-radius: 5px;
+      margin-top: 20px;
       width: 100%;
-      cursor: pointer;
+      padding: 10px;
+      background: #ff7e5f;
+      border: none;
+      color: white;
       font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: 0.3s;
     }
+
     button:hover {
-      background: #0056b3;
+      background: #eb5757;
     }
   </style>
 </head>
 <body>
-  <div class="form-container">
+
+  <div class="container">
     <h2>Labour Registration</h2>
-    <form action="/register" method="POST" enctype="multipart/form-data">
-      <label>Full Name:</label>
-      <input type="text" name="name" required>
+    <form action="#" method="post" enctype="multipart/form-data">
 
-      <label>Mobile Number:</label>
-      <input type="tel" name="mobile" required pattern="[0-9]{10}">
+      <label for="name">Full Name</label>
+      <input type="text" id="name" name="name" required>
 
-      <label>Address:</label>
-      <input type="text" name="address" required>
-
-      <label>Skill Type:</label>
-      <select name="skill" required>
-        <option value="">-- Select Skill --</option>
-        <option value="Plumber">Plumber</option>
-        <option value="Electrician">Electrician</option>
-        <option value="Carpenter">Carpenter</option>
-        <option value="Mason (Kadia)">Mason (Kadia)</option>
-        <option value="Painter">Painter</option>
+      <label for="skill">Skill</label>
+      <select id="skill" name="skill">
+        <option>Plumber</option>
+        <option>Electrician</option>
+        <option>Carpenter</option>
+        <option>Painter</option>
+        <option>Welder</option>
       </select>
 
-      <label>Experience (in years):</label>
-      <input type="number" name="experience" min="0" required>
+      <label for="experience">Work Experience (Years)</label>
+      <input type="number" id="experience" name="experience" required>
 
-      <label>Location (City/Pincode):</label>
-      <input type="text" name="location" required>
+      <label for="aadhar">Aadhar Number</label>
+      <input type="text" id="aadhar" name="aadhar" required>
 
-      <label>Aadhaar Number:</label>
-      <input type="text" name="aadhaar" pattern="[0-9]{12}" required>
+      <label for="phone">Phone Number</label>
+      <input type="text" id="phone" name="phone" required>
 
-      <label>PAN Card Number:</label>
-      <input type="text" name="pan" pattern="[A-Z]{5}[0-9]{4}[A-Z]{1}" required>
+      <label for="gender">Gender</label>
+      <select id="gender" name="gender">
+        <option>Male</option>
+        <option>Female</option>
+        <option>Other</option>
+      </select>
 
-      <label>Upload Aadhaar Image:</label>
-      <input type="file" name="aadhaar_img" accept="image/*">
+      <label for="dob">Date of Birth</label>
+      <input type="date" id="dob" name="dob" required>
+
+      <label for="email">Email ID</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="current_address">Current Address</label>
+      <input type="text" id="current_address" name="current_address" required>
+
+      <label for="permanent_address">Permanent Address</label>
+      <input type="text" id="permanent_address" name="permanent_address">
+
+      <label for="emergency_contact">Emergency Contact</label>
+      <input type="text" id="emergency_contact" name="emergency_contact" required>
+
+      <label for="preferred_area">Preferred Work Area</label>
+      <input type="text" id="preferred_area" name="preferred_area">
+
+      <label for="wage">Expected Daily Wage (₹)</label>
+      <input type="number" id="wage" name="wage">
+
+      <label for="availability">Currently Available?</label>
+      <select id="availability" name="availability">
+        <option>Yes</option>
+        <option>No</option>
+      </select>
+
+      <label for="aadhar_upload">Upload Aadhar Card</label>
+      <input type="file" id="aadhar_upload" name="aadhar_upload" accept="image/*">
+
+      <label for="profile_photo">Upload Profile Photo</label>
+      <input type="file" id="profile_photo" name="profile_photo" accept="image/*">
 
       <button type="submit">Register</button>
-      <div style="text-align: center; margin-top: 15px;">
-  <a href="index.html">Back to Login</a>
-</div>
     </form>
   </div>
+
 </body>
 </html>
