@@ -23,7 +23,7 @@
 
     /* 🔝 Navigation Bar */
     nav {
-      background-color: #222;
+      background-color: #18c40c;
       padding: 15px 0;
       text-align: center;
     }
@@ -125,6 +125,8 @@
     <a href="home.html"><i class="fas fa-home"></i> Home</a>
     <a href="labour.html"><i class="fas fa-user-plus"></i> Register Labour</a>
     <a href="contractor.html"><i class="fas fa-users-cog"></i> Register Contractor</a>
+    <a href="about.html"><i class="fas fa-users-cog"></i>About</a>
+    <a href="contact.html"><i class="fas fa-users-cog"></i> Contact Me.📞</a>
   </div>
 </nav>
 
@@ -150,6 +152,10 @@
     if ((username === "contractor@gmail.com" || username === "hello") && password === "1234") {
       // Redirect to dashboard
       window.location.href = "labourdash.html";
+    } 
+    if ((username === "con@gmail.com" || username === "hell") && password === "1234") {
+      // Redirect to dashboard
+      window.location.href = "contractordash.html";
     } else {
       alert("Invalid username or password.");
     }
@@ -161,10 +167,10 @@
         <p>New here?</p>
         <a href="labour.html">Register as Labour</a>
         <a href="contractor.html">Register as Contractor</a>
+        <a href="adminlogin.html">login as admin</a>
       </div>
     </div>
   </div>
 
 </body>
 </html>
-
