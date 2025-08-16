@@ -177,9 +177,9 @@
     </div>
     <div class="nav-links">
       <a href="index.html"><i class="fas fa-home"></i> Home</a>
-      <a href="labour.html"><i class="fas fa-user-plus"></i> Labour Register</a>
-      <a href="contractor.html"><i class="fas fa-users-cog"></i> Contractor Register</a>
-      <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
+      <a href="labour_register.html"><i class="fas fa-user-plus"></i> Labour Register</a>
+      <a href="contractor_register.html"><i class="fas fa-users-cog"></i> Contractor Register</a>
+      <a href="#"><i class="fas fa-info-circle"></i> About</a>
       <a href="#"><i class="fas fa-phone-alt"></i> Contact</a>
       <a href="index.html"><i class="fas fa-sign-out-alt"></i> Logout</a>
     </div>
@@ -208,25 +208,36 @@
 
   <!-- 👷 Labour Cards -->
   <div class="results" id="results">
+    <!-- 🛠️ Job Posting Section -->
+<div class="search-section" style="margin-top: 30px;">
+  <h2 style="text-align:center; color:#0d47a1;">Post a New Job</h2>
+  <form onsubmit="event.preventDefault(); postJob();">
+    <select id="postSkill" required>
+      <option value="">-- Required Skill --</option>
+      <option value="Plumber">Plumber</option>
+      <option value="Electrician">Electrician</option>
+      <option value="Carpenter">Carpenter</option>
+      <option value="Mason">Mason</option>
+      <option value="Painter">Painter</option>
+    </select>
+    <input type="text" id="postLocation" placeholder="Job Location" required>
+    <input type="number" id="postDays" placeholder="Number of Days" min="1" required>
+    <input type="number" id="postWages" placeholder="Wages (₹)" min="0" required>
+    <input type="text" id="postDesc" placeholder="Job Description (optional)">
+    <button type="submit"><i class="fas fa-plus-circle"></i> Post Job</button>
+  </form>
+</div>
+
+<!-- 💼 Job Posts Display -->
+<div class="results" id="postedJobs">
+  <!-- JS will insert job posts here -->
+</div>
+
     <!-- JS will insert matching labour profiles here -->
   </div>
 
   <script>
     const labourData = [
-    {
-        name: "Ramu sharma",
-        skill: "Plumber",
-        experience: 8,
-        location: "Malad, 400095",
-        contact: "9876543217"
-      },
-    {
-        name: "Raju Kale",
-        skill: "Carpenter",
-        experience: 2.5,
-        location: "Malad, 400095",
-        contact: "9876543215"
-      },
       {
         name: "Ramesh Kumar",
         skill: "Electrician",
@@ -265,6 +276,9 @@
         resultsDiv.innerHTML = '<p>No matching labour found.</p>';
         return;
       }
+    
+}
+
 
       filtered.forEach(labour => {
         const card = document.createElement('div');
@@ -281,7 +295,7 @@
         `;
         resultsDiv.appendChild(card);
       });
-    }
+    
   </script>
 
 </body>
